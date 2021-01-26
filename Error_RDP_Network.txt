@@ -1,0 +1,38 @@
+error on Bastion
+error on RDP
+fail ping
+fail telnet 3389
+
+1. fist open portal azure
+2. locate le VM Windows
+3. check status "Running"
+4. chech network interface and ip valid
+5. TRY change between static and dinamic ip
+6. check boot diagnostics
+7. review error network on the VM
+8. open "SerialConsole"
+9. in serial console check ip address working with command "i"
+10. create un channel CMD with the command "cmd"
+11. swtich to CMD channel with command "ch -si 1"
+12. enter for continue
+13. enter user, domain ("." o empty if local admin user), and enter password
+14. now you are longin on the server 
+15. list hidden o ghost network devices with command;
+Get-PnpDevice -class net | ? Status -eq Unknown | Select FriendlyName,InstanceId
+
+note: play attention after paste the command "classs"
+16. enter and see the large mount of devices
+17. remove non-present PNP devices with the command;
+%windir%\System32\RUNDLL32.exe %windir%\System32\pnpclean.dll,RunDLL_PnpClean /Devices /Maxclean
+
+18. check if safeboot is active with the command;
+bcdedit /deletevalue {current} safeboot
+
+19. restore to defaul state for safeboot with command;
+bcdedit /deletevalue {default} safeboot
+
+20. restart Windows vm with the command;
+shutdown /r /t 0
+Adding /f will force running applications to close without warning users.
+
+21. finish chech again RDP or Bastion
