@@ -3,7 +3,7 @@ error on RDP
 fail ping
 fail telnet 3389
 
-1. fist open portal azure
+1. first open portal azure
 2. locate the VM Windows
 3. check status "Running"
 4. chech network interface and ip valid
@@ -17,10 +17,11 @@ fail telnet 3389
 12. enter for continue
 13. enter user, domain ("." o empty if local admin user), and enter password
 14. now you are longin on the server 
-15. list hidden o ghost network devices with command;
+15. list state unknow network devices with command;
 Get-PnpDevice -class net | ? Status -eq Unknown | Select FriendlyName,InstanceId
 
-note: play attention after paste the command "classs"
+note: play attention after paste the commands!!!!
+
 16. enter and see the large mount of devices
 17. remove non-present PNP devices with the command;
 %windir%\System32\RUNDLL32.exe %windir%\System32\pnpclean.dll,RunDLL_PnpClean /Devices /Maxclean
