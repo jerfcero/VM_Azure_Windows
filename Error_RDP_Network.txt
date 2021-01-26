@@ -4,7 +4,7 @@ fail ping
 fail telnet 3389
 
 1. fist open portal azure
-2. locate le VM Windows
+2. locate the VM Windows
 3. check status "Running"
 4. chech network interface and ip valid
 5. TRY change between static and dinamic ip
